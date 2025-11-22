@@ -1,0 +1,390 @@
+/* ---------- Base Styles ---------- */
+
+:root {
+  --primary: #2563eb;
+  --primary-soft: #e0edff;
+  --accent: #0ea5e9;
+  --danger: #ef4444;
+  --success: #16a34a;
+  --warning: #facc15;
+  --text-main: #0f172a;
+  --text-muted: #6b7280;
+  --bg-body: #f5f7fb;
+  --bg-card: #ffffff;
+  --border-soft: #e5e7eb;
+  --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-body);
+  color: var(--text-main);
+}
+
+/* ---------- Layout / Container ---------- */
+
+.container {
+  max-width: 1140px;
+}
+
+/* ---------- Hero Section ---------- */
+
+.hero {
+  background: radial-gradient(circle at top left, var(--accent), transparent 60%),
+              radial-gradient(circle at bottom right, var(--primary), transparent 60%),
+              linear-gradient(135deg, #0f172a, #1d283a);
+  color: #f9fafb;
+  padding: 1.75rem 2rem;
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.12), transparent 60%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.hero h1 {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(1.6rem, 2vw + 1rem, 2.1rem);
+  margin-bottom: 0.35rem;
+}
+
+.hero p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+/* ---------- Tabs ---------- */
+
+.nav-tabs {
+  border-bottom: 1px solid transparent;
+  background: #ffffff;
+  padding: 0.4rem;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.nav-tabs .nav-item {
+  margin-bottom: 0;
+}
+
+.nav-tabs .nav-link {
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1.15rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease,
+    transform 0.1s ease;
+}
+
+.nav-tabs .nav-link:hover {
+  background: #f3f4ff;
+  color: var(--primary);
+}
+
+.nav-tabs .nav-link.active {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
+  transform: translateY(-1px);
+}
+
+/* ---------- Section Headers ---------- */
+
+.tab-pane h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.tab-pane h4::before {
+  content: "";
+  width: 4px;
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  border: 1px solid rgba(15, 23, 42, 0.03);
+  border-radius: 1rem;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.12);
+  border-color: rgba(37, 99, 235, 0.15);
+}
+
+.card-body {
+  padding: 1.1rem 1.2rem;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.card-text {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Badges ---------- */
+
+.badge {
+  font-weight: 500;
+  font-size: 0.75rem;
+  padding: 0.3em 0.6em;
+  border-radius: 999px;
+}
+
+.badge.bg-primary {
+  background: var(--primary) !important;
+}
+
+.badge.bg-success {
+  background: var(--success) !important;
+}
+
+.badge.bg-danger {
+  background: var(--danger) !important;
+}
+
+.badge.bg-warning {
+  background: var(--warning) !important;
+  color: #111827 !important;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  border-radius: 999px;
+  font-size: 0.85rem;
+  padding-inline: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-weight: 500;
+}
+
+.btn-sm {
+  padding-block: 0.28rem;
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.btn-success {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.btn-success:hover {
+  background: #15803d;
+  border-color: #15803d;
+}
+
+/* Outline button tweaks */
+.btn-outline-primary {
+  border-radius: 999px;
+}
+
+/* ---------- Forms ---------- */
+
+.form-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 0.25rem;
+}
+
+.form-control {
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-soft);
+  font-size: 0.86rem;
+  padding: 0.45rem 0.75rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  background: #f9fafb;
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+  background: #ffffff;
+}
+
+/* ---------- Ticket Booking Section ---------- */
+
+#ticketTab .card {
+  margin-top: 0.4rem;
+}
+
+#bookingMsg .alert {
+  border-radius: 0.75rem;
+  font-size: 0.8rem;
+}
+
+/* ---------- Lists: Routes / Buses / Drivers / Maintenance ---------- */
+
+#routesList .card,
+#busesList .card,
+#driversList .card,
+#maintenanceList .card {
+  position: relative;
+}
+
+#routesList .card-text strong,
+#busesList .card-text strong,
+#driversList .card-text strong,
+#maintenanceList .card-text strong {
+  color: #111827;
+}
+
+/* Slight top colored border for variety */
+#routesList .card::before,
+#busesList .card::before,
+#driversList .card::before,
+#maintenanceList .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border-top: 3px solid rgba(37, 99, 235, 0.45);
+  pointer-events: none;
+}
+
+/* ---------- Recent Bookings ---------- */
+
+#bookingsList .card {
+  border-radius: 0.85rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+#bookingsList .card-body {
+  font-size: 0.82rem;
+}
+
+#bookingsList strong {
+  color: #111827;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  margin-top: 2rem;
+  padding: 1.5rem 0 1.75rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+footer p {
+  margin: 0;
+}
+
+footer p::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  margin: 0 auto 0.5rem;
+}
+
+/* ---------- Utility / General ---------- */
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* ---------- Responsive Tweaks ---------- */
+
+@media (max-width: 992px) {
+  .hero {
+    padding: 1.4rem 1.5rem;
+  }
+
+  .nav-tabs {
+    flex-wrap: wrap;
+    border-radius: 1rem;
+    gap: 0.25rem;
+  }
+
+  .nav-tabs .nav-link {
+    padding-inline: 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 1rem !important;
+  }
+
+  .hero {
+    border-radius: 1rem;
+    text-align: left;
+  }
+
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero p {
+    font-size: 0.85rem;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-tabs {
+    padding: 0.25rem;
+  }
+
+  .nav-tabs .nav-link {
+    flex: 1 1 48%;
+  }
+}
